@@ -25,7 +25,7 @@ def scrape():
     browser = init_browser()
     collection.drop()
 
-    # Nasa Mars news
+    # NASA Mars news
     news_url = 'https://mars.nasa.gov/news/'
     browser.visit(news_url)
     news_html = browser.html
@@ -43,20 +43,15 @@ def scrape():
     feature_url = base_link+image_url
     featured_image_title = jpl_soup.find('h1', class_="media_feature_title").text.strip()
 
-    # Mars Weather
-    turl = 'https://twitter.com/marswxreport?lang=en'
-    browser.visit(turl)
-    thtml = browser.html
-    tw_soup = bs(thtml,"html.parser")
-    mars_weather = tw_soup.find("p", class_= "TweetTextSize TweetTextSize--normal js-tweet-text tweet-text").text
-
-
-    # Mars fact
+        # Mars Facts
     murl = 'https://space-facts.com/mars/'
     table = pd.read_html(murl)
-    mars_df = table[0]
+    table[1]
+    mars_df = table[1]
     mars_df =  mars_df[['Mars - Earth Comparison', 'Mars']]
+    mars_df
     mars_fact_html = mars_df.to_html(header=False, index=False)
+    mars_fact_html
 
     # Mars Hemispheres
     mhurl = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
@@ -78,6 +73,7 @@ def scrape():
             product_dict['title']= titles
             product_dict['image_url']= image_url
             hemisphere_image_urls.append(product_dict)
+    hemisphere_image_urls
 
 
 
@@ -98,12 +94,10 @@ def scrape():
 		'summary': news_para,
         'featured_image': feature_url,
 		'featured_image_title': featured_image_title,
-		'weather': mars_weather,
 		'fact_table': mars_fact_html,
 		'hemisphere_image_urls': hemisphere_image_urls,
         'news_url': news_url,
         'jpl_url': jurl,
-        'weather_url': turl,
         'fact_url': murl,
         'hemisphere_url': mhurl,
         }
