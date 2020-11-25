@@ -21,7 +21,7 @@ Push the above changes to GitHub or GitLab.
 
 
 
-## Step 1 - Scraping:
+# Step 1 - Scraping:
 
 Complete your initial scraping using Jupyter Notebook, BeautifulSoup, Pandas, and Requests/Splinter.
 
@@ -73,7 +73,7 @@ hemisphere_image_urls = [
     {"title": "Syrtis Major Hemisphere", "img_url": "..."},
 ]
 
-## Step 2 - MongoDB and Flask Application:
+# Step 2 - MongoDB and Flask Application:
 Use MongoDB with Flask templating to create a new HTML page that displays all of the information that was scraped from the URLs above.
 
 Start by converting your Jupyter notebook into a Python script called scrape_mars.py with a function called scrape that will execute all of your scraping code from above and return one Python dictionary containing all of the scraped data.
@@ -86,7 +86,7 @@ Create a root route / that will query your Mongo database and pass the mars data
 
 Create a template HTML file called index.html that will take the mars data dictionary and display all of the data in the appropriate HTML elements. Use the following as a guide for what the final product should look like, but feel free to create your own design.
 
-## Step 3 - Submission:
+# Step 3 - Submission:
 To submit your work to BootCampSpot, create a new GitHub repository and upload the following:
 
 The Jupyter Notebook containing the scraping code used.
